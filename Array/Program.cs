@@ -310,16 +310,16 @@ namespace GS.Util
             #endregion
 
             #region Heap Algos
-            int[] arr = { 5, 3, 8, 4, 1, 2 };
-            Helper.Heapify(arr);
-            foreach (var item in arr)
-            {
-                Console.WriteLine(item);
-            }
-            //GetKth largest element
-            int input = Convert.ToInt32(Console.ReadLine());
-            int kth = Helper.GetKthLargest(arr, input);
-            Console.WriteLine("{0} Largest is {1}", input, kth);
+            //int[] arr = { 5, 3, 8, 4, 1, 2 };
+            //Helper.Heapify(arr);
+            //foreach (var item in arr)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            ////GetKth largest element
+            //int input = Convert.ToInt32(Console.ReadLine());
+            //int kth = Helper.GetKthLargest(arr, input);
+            //Console.WriteLine("{0} Largest is {1}", input, kth);
             //Console.WriteLine("2ndLargest item is", arr[])
             //foreach (var item in arr)
             //{
