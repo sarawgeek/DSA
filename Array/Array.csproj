@@ -73,6 +73,7 @@
     <Compile Include="Stack.cs" />
     <Compile Include="StackQueue.cs" />
     <Compile Include="StackUtility.cs" />
+    <Compile Include="Trie.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -326,6 +326,14 @@ namespace GS.Util
             //    Console.WriteLine(item);
             //}
             #endregion
+
+            #region Trie
+            Trie trie = new Trie();
+            //trie.Insert("cat");
+            trie.Insert("camel");
+            trie.Traverse();
+            //Console.WriteLine(trie.Contains(null));
+            #endregion
         }
     }
 }
