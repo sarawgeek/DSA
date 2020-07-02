@@ -335,6 +335,8 @@ namespace GS.Util
             Console.WriteLine(trie.Contains("car"));          
 
             trie.Delete("car");
+            trie.Delete("");
+            trie.Delete(null);
             Console.WriteLine(trie.Contains("car"));
             Console.WriteLine(trie.Contains("care"));
             //trie.Traverse();

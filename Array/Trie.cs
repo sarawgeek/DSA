@@ -37,6 +37,16 @@ namespace GS.Util
             {
                 return children.Values.ToArray();
             }
+
+            public bool hasChildren()
+            {
+                return children.Count != 0;
+            }
+
+            public void removeChild(char ch)
+            {
+                children.Remove(ch);
+            }
         }
         Node root = new Node(char.MinValue);
         public void Insert(string word)
@@ -95,25 +105,44 @@ namespace GS.Util
 
         public void Delete(string word)
         {
-            var current = root;
+            if (word == null)
+                return;
+            delete(root, word, index:0);
+            //var current = root;
 
-            foreach (var item in word)
-            {
-                var child = current.getChild(item);
-                if (current.hasChild(item))
-                {
-                    current = child;
-                }
-                else throw new ArgumentOutOfRangeException("Word does not exist");
-            }
-            if (current.isEndOfWord) 
-                current.isEndOfWord = false;
-            else throw new ArgumentOutOfRangeException("Word does not exist");
-            Console.WriteLine("Word {0} deleted successfully", word);
+            //foreach (var item in word)
+            //{
+            //    var child = current.getChild(item);
+            //    if (current.hasChild(item))
+            //    {
+            //        current = child;
+            //    }
+            //    else throw new ArgumentOutOfRangeException("Word does not exist");
+            //}
+            //if (current.isEndOfWord) 
+            //    current.isEndOfWord = false;
+            //else throw new ArgumentOutOfRangeException("Word does not exist");
+            //Console.WriteLine("Word {0} deleted successfully", word);
         }
-        private void delete(Node root)
+        private void delete(Node root, string word, int index=0)
         {
+            if (index == word.Length)
+            {
+                root.isEndOfWord = false;
+                return;
+            }          
 
+            var ch = word[index];
+            var child = root.getChild(ch);
+            if (child == null)
+                return;
+            delete(child, word, index + 1);
+
+            if (!child.hasChildren() && child.isEndOfWord)
+            {
+                root.removeChild(ch);
+            }
+            Console.WriteLine(child.value);
         }
     }
 }
