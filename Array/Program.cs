@@ -330,8 +330,15 @@ namespace GS.Util
             #region Trie
             Trie trie = new Trie();
             //trie.Insert("cat");
-            trie.Insert("camel");
-            trie.Traverse();
+            trie.Insert("car");
+            trie.Insert("care");
+            Console.WriteLine(trie.Contains("car"));          
+
+            trie.Delete("car");
+            Console.WriteLine(trie.Contains("car"));
+            Console.WriteLine(trie.Contains("care"));
+            //trie.Traverse();
+            //trie.Delete("camel");
             //Console.WriteLine(trie.Contains(null));
             #endregion
         }

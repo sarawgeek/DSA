@@ -13,7 +13,7 @@ namespace GS.Util
             //public static int ALPHABET_SIZE = 26;
             public char value;
             //public Node[] children = new Node[ALPHABET_SIZE];
-            public Dictionary<char, Node> children = new Dictionary<char, Node>(); 
+            public Dictionary<char, Node> children = new Dictionary<char, Node>();
             public bool isEndOfWord;
             public Node(char Value)
             {
@@ -28,7 +28,7 @@ namespace GS.Util
             {
                 return children.ContainsKey(value);
             }
-            public Node getNode(char value)
+            public Node getChild(char value)
             {
                 return children[value];
             }
@@ -49,7 +49,7 @@ namespace GS.Util
                 {
                     currenNode.addChild(item);
                 }
-                currenNode = currenNode.getNode(item);
+                currenNode = currenNode.getChild(item);
             }
             currenNode.isEndOfWord = true;
         }
@@ -66,23 +66,54 @@ namespace GS.Util
                 if (!current.hasChild(item))
                     return false;
 
-                current = current.getNode(item);
+                current = current.getChild(item);
             }
             return current.isEndOfWord;
         }
 
         public void Traverse()
         {
-            traverse(root);
+            preOrderTraverse(root);
         }
-        private void traverse(Node root)
+        private void postOrderTraverse(Node root)
         {
-            
             foreach (var item in root.getChildren())
             {
-                traverse(item);
+                postOrderTraverse(item);
             }
             Console.WriteLine(root.value);
+        }
+
+        private void preOrderTraverse(Node root)
+        {
+            Console.WriteLine(root.value);
+            foreach (var item in root.getChildren())
+            {
+                preOrderTraverse(item);
+            }
+        }
+
+        public void Delete(string word)
+        {
+            var current = root;
+
+            foreach (var item in word)
+            {
+                var child = current.getChild(item);
+                if (current.hasChild(item))
+                {
+                    current = child;
+                }
+                else throw new ArgumentOutOfRangeException("Word does not exist");
+            }
+            if (current.isEndOfWord) 
+                current.isEndOfWord = false;
+            else throw new ArgumentOutOfRangeException("Word does not exist");
+            Console.WriteLine("Word {0} deleted successfully", word);
+        }
+        private void delete(Node root)
+        {
+
         }
     }
 }
