@@ -108,21 +108,6 @@ namespace GS.Util
             if (word == null)
                 return;
             delete(root, word, index:0);
-            //var current = root;
-
-            //foreach (var item in word)
-            //{
-            //    var child = current.getChild(item);
-            //    if (current.hasChild(item))
-            //    {
-            //        current = child;
-            //    }
-            //    else throw new ArgumentOutOfRangeException("Word does not exist");
-            //}
-            //if (current.isEndOfWord) 
-            //    current.isEndOfWord = false;
-            //else throw new ArgumentOutOfRangeException("Word does not exist");
-            //Console.WriteLine("Word {0} deleted successfully", word);
         }
         private void delete(Node root, string word, int index=0)
         {
@@ -143,6 +128,42 @@ namespace GS.Util
                 root.removeChild(ch);
             }
             Console.WriteLine(child.value);
+        }
+
+        public List<string> AutoComplete(string word)
+        {
+            List<string> wordsList = new List<string>();
+            //string currentWord = string.Empty;
+            if (word == null)
+                return wordsList;
+            //wordsList.Add(word);
+            var current = root;
+            
+            foreach (var item in word)
+            {
+                var child = current.getChild(item);
+                if (child == null)
+                    return wordsList;
+                current = child;
+            }
+            autoComplete(current, word, wordsList);
+            return wordsList;
+        }
+
+        private void autoComplete(Node root, string currentWord, List<string> wordsList)
+        {
+            if (root == null)
+                return;
+            
+            if (root.isEndOfWord)
+                wordsList.Add(currentWord);
+
+            foreach (var item in root.getChildren())
+            {                
+                autoComplete(item, currentWord+item.value, wordsList);
+                
+            }
+
         }
     }
 }

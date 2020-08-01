@@ -328,20 +328,40 @@ namespace GS.Util
             #endregion
 
             #region Trie
-            Trie trie = new Trie();
-            //trie.Insert("cat");
-            trie.Insert("car");
-            trie.Insert("care");
-            Console.WriteLine(trie.Contains("car"));          
+            //Trie trie = new Trie();
+            ////trie.Insert("cat");
+            //trie.Insert("car");
+            //trie.Insert("care");
+            //trie.Insert("careful");
+            //trie.Insert("card");
+            //trie.Insert("core");
+            //trie.Insert("egg");
+            //List<string> words = trie.AutoComplete("");
+            //foreach (var item in words)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine(trie.Contains("car"));          
 
-            trie.Delete("car");
-            trie.Delete("");
-            trie.Delete(null);
-            Console.WriteLine(trie.Contains("car"));
-            Console.WriteLine(trie.Contains("care"));
+            //trie.Delete("car");
+            //trie.Delete("");
+            //trie.Delete(null);
+            //Console.WriteLine(trie.Contains("car"));
+            //Console.WriteLine(trie.Contains("care"));
             //trie.Traverse();
             //trie.Delete("camel");
             //Console.WriteLine(trie.Contains(null));
+            #endregion
+
+            #region Graphs
+            Graph graph = new Graph();
+            graph.AddNode("book");
+            graph.AddNode("label");
+            graph.AddNode("node");
+            graph.AddEdge("book", "label");
+            graph.AddEdge("book", "node");
+            //graph.RemoveEdge("book", "node");
+            Console.WriteLine(graph.ToString());
             #endregion
         }
     }

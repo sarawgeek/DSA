@@ -61,6 +61,7 @@
     <Compile Include="Array.cs" />
     <Compile Include="ArrayQueue.cs" />
     <Compile Include="AVLTrees.cs" />
+    <Compile Include="Graph.cs" />
     <Compile Include="Heap.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Tree.cs" />
