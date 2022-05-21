@@ -357,11 +357,15 @@ namespace GS.Util
             Graph graph = new Graph();
             graph.AddNode("book");
             graph.AddNode("label");
-            graph.AddNode("node");
+            graph.AddNode("author");
             graph.AddEdge("book", "label");
-            graph.AddEdge("book", "node");
+            graph.AddEdge("book", "author");
+            //graph.RemoveNode("author");
             //graph.RemoveEdge("book", "node");
-            Console.WriteLine(graph.ToString());
+            graph.Print();
+            graph.RemoveEdge("book", "label");
+            graph.RemoveEdge("book", "author");
+            graph.Print();
             #endregion
         }
     }
