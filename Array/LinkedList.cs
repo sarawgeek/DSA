@@ -58,12 +58,6 @@ namespace GS.Util
     {
         if (!IsEmpty())
         {
-            //var tempNode = new Node(0);
-            //tempNode = first.nextNode;
-            //first.Delete();
-            //first = tempNode;
-            //tempNode.Delete();
-
             var tempNode = first.nextNode;
             first.nextNode = null;
             first = tempNode;
@@ -147,21 +141,6 @@ namespace GS.Util
     {
         if (first != null && first != last)
         {
-            //Node temp2 = first.nextNode;
-            //first.nextNode = null;
-            //Node temp1 = null;
-            //Node temp3 = temp2;
-            //temp2 = temp2.nextNode;
-            //temp3.nextNode = first;
-            //while (temp2!=null)
-            //{
-            //    temp1 = temp3;
-            //    temp3 = temp2;
-            //    temp2 = temp2.nextNode;
-            //    temp3.nextNode = temp1;
-            //}
-            //last = first;
-            //first = temp3;
             Node previous = first;
             Node current = first.nextNode;
             first.nextNode = null;
